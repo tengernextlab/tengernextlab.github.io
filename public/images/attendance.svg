@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 225" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="400" y2="225" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0b1638"/>
+      <stop offset="1" stop-color="#050b1f"/>
+    </linearGradient>
+    <linearGradient id="grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#38bdf8"/>
+      <stop offset="1" stop-color="#818cf8"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="225" fill="url(#bg)"/>
+  <g font-family="Inter, Arial, sans-serif">
+    <circle cx="90" cy="112" r="62" fill="#0f1a3a" stroke="url(#grad)" stroke-width="5"/>
+    <g stroke="#64748b" stroke-width="2" stroke-linecap="round">
+      <path d="M90 56v8M90 160v8M34 112h8M138 112h8"/>
+    </g>
+    <path d="M90 112L79.5 80M90 112L68 111" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="90" cy="112" r="4" fill="#38bdf8"/>
+    <text x="90" y="196" text-anchor="middle" font-size="8" font-weight="600" fill="#94a3b8">08:57</text>
+    <rect x="176" y="22" width="204" height="182" rx="12" fill="#0f1a3a" stroke="#ffffff" stroke-opacity="0.12"/>
+    <text x="190" y="44" font-size="10" font-weight="700" fill="#ffffff">Өнөөдрийн ирц</text>
+    <text x="300" y="44" font-size="7" fill="#94a3b8">Ирсэн</text>
+    <text x="344" y="44" font-size="7" fill="#94a3b8">Явсан</text>
+    <g font-size="8">
+      <circle cx="198" cy="66" r="8" fill="#38bdf8" fill-opacity="0.4"/><text x="212" y="69" fill="#e2e8f0">Болд</text><text x="300" y="69" fill="#34d399">08:52</text><text x="344" y="69" fill="#e2e8f0">18:05</text>
+      <circle cx="198" cy="96" r="8" fill="#818cf8" fill-opacity="0.5"/><text x="212" y="99" fill="#e2e8f0">Сараа</text><text x="300" y="99" fill="#34d399">08:58</text><text x="344" y="99" fill="#e2e8f0">18:10</text>
+      <circle cx="198" cy="126" r="8" fill="#f472b6" fill-opacity="0.5"/><text x="212" y="129" fill="#e2e8f0">Айдос</text><text x="300" y="129" fill="#fbbf24">09:14</text><text x="344" y="129" fill="#64748b">—</text>
+      <circle cx="198" cy="156" r="8" fill="#34d399" fill-opacity="0.5"/><text x="212" y="159" fill="#e2e8f0">Нармандах</text><text x="300" y="159" fill="#34d399">08:45</text><text x="344" y="159" fill="#64748b">—</text>
+    </g>
+    <path d="M190 80h176M190 110h176M190 140h176" stroke="#ffffff" stroke-opacity="0.06"/>
+    <rect x="190" y="176" width="80" height="16" rx="8" fill="#34d399" fill-opacity="0.15"/>
+    <text x="230" y="187" text-anchor="middle" font-size="7" font-weight="600" fill="#34d399">Ирц: 96%</text>
+  </g>
+</svg>

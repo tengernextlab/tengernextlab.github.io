@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 225" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="400" y2="225" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0b1638"/>
+      <stop offset="1" stop-color="#050b1f"/>
+    </linearGradient>
+    <linearGradient id="grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#38bdf8"/>
+      <stop offset="1" stop-color="#818cf8"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="225" fill="url(#bg)"/>
+  <g font-family="Inter, Arial, sans-serif">
+    <g stroke="#475569" stroke-width="3">
+      <path d="M28 40v164M188 40v164M28 92h160M28 146h160M28 200h160"/>
+    </g>
+    <rect x="38" y="62" width="34" height="28" rx="3" fill="#b45309" fill-opacity="0.8"/>
+    <rect x="76" y="70" width="28" height="20" rx="3" fill="#d97706" fill-opacity="0.8"/>
+    <rect x="108" y="56" width="38" height="34" rx="3" fill="#b45309" fill-opacity="0.8"/>
+    <rect x="38" y="118" width="40" height="26" rx="3" fill="#d97706" fill-opacity="0.8"/>
+    <rect x="82" y="124" width="30" height="20" rx="3" fill="#b45309" fill-opacity="0.8"/>
+    <rect x="38" y="178" width="30" height="20" rx="3" fill="#b45309" fill-opacity="0.8"/>
+    <g stroke="#0b1638" stroke-opacity="0.4"><path d="M55 62v28M90 70v20M127 56v34M58 118v26M97 124v20M53 178v20"/></g>
+    <rect x="206" y="22" width="174" height="182" rx="12" fill="#0f1a3a" stroke="#ffffff" stroke-opacity="0.12"/>
+    <text x="220" y="44" font-size="10" font-weight="700" fill="#ffffff">Барааны үлдэгдэл</text>
+    <g font-size="8">
+      <text x="220" y="70" fill="#e2e8f0">Гурил 25кг</text><text x="366" y="70" text-anchor="end" fill="#e2e8f0">120</text>
+      <rect x="220" y="76" width="146" height="5" rx="2.5" fill="#1e293b"/><rect x="220" y="76" width="118" height="5" rx="2.5" fill="#34d399"/>
+      <text x="220" y="102" fill="#e2e8f0">Будаа 1кг</text><text x="366" y="102" text-anchor="end" fill="#e2e8f0">64</text>
+      <rect x="220" y="108" width="146" height="5" rx="2.5" fill="#1e293b"/><rect x="220" y="108" width="72" height="5" rx="2.5" fill="#38bdf8"/>
+      <text x="220" y="134" fill="#e2e8f0">Тос 5л</text><text x="366" y="134" text-anchor="end" fill="#f87171">8</text>
+      <rect x="220" y="140" width="146" height="5" rx="2.5" fill="#1e293b"/><rect x="220" y="140" width="16" height="5" rx="2.5" fill="#f87171"/>
+    </g>
+    <rect x="220" y="162" width="146" height="28" rx="8" fill="#f87171" fill-opacity="0.12" stroke="#f87171" stroke-opacity="0.4"/>
+    <text x="232" y="180" font-size="7.5" font-weight="600" fill="#fca5a5">⚠ Тос дуусах гэж байна</text>
+  </g>
+</svg>
