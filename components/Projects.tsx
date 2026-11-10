@@ -9,7 +9,7 @@ const gradients = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="scroll-mt-20 bg-sky-night/50 py-24">
+    <section id="projects" className="scroll-mt-20 py-24">
       <div className="mx-auto max-w-6xl px-4">
         <SectionTitle eyebrow="Төслүүд" title="Хэрэгжүүлсэн ажлууд" />
 

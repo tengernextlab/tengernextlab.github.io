@@ -18,7 +18,7 @@ export default function Contact() {
     "w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-slate-500 focus:border-accent focus:outline-none";
 
   return (
-    <section id="contact" className="scroll-mt-20 py-24">
+    <section id="contact" className="scroll-mt-20 bg-sky-night/50 py-24">
       <div className="mx-auto max-w-6xl px-4">
         <SectionTitle
           eyebrow="Холбоо барих"

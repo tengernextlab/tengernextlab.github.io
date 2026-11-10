@@ -27,7 +27,7 @@ export default function Header() {
           {company.name}
         </a>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-8 lg:flex">
           {nav.map((item) => (
             <a key={item.href} href={item.href} className="text-sm text-slate-300 hover:text-white">
               {item.label}
@@ -42,7 +42,7 @@ export default function Header() {
         </nav>
 
         <button
-          className="md:hidden text-white"
+          className="lg:hidden text-white"
           aria-label="Цэс"
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
@@ -54,7 +54,7 @@ export default function Header() {
       </div>
 
       {open && (
-        <nav className="flex flex-col gap-1 px-4 pb-4 md:hidden">
+        <nav className="flex flex-col gap-1 px-4 pb-4 lg:hidden">
           {nav.map((item) => (
             <a
               key={item.href}
