@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 225" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="400" y2="225" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0b1638"/>
+      <stop offset="1" stop-color="#050b1f"/>
+    </linearGradient>
+    <linearGradient id="grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#38bdf8"/>
+      <stop offset="1" stop-color="#818cf8"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#fbbf24" stop-opacity="0.25"/>
+      <stop offset="1" stop-color="#fbbf24" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="400" height="225" fill="url(#bg)"/>
+  <circle cx="300" cy="80" r="90" fill="url(#glow)"/>
+
+  <!-- Strategy flow -->
+  <g font-family="Inter, Arial, sans-serif" font-size="7.5" font-weight="600" text-anchor="middle">
+    <rect x="22" y="20" width="76" height="28" rx="8" fill="#ffffff" fill-opacity="0.06" stroke="#38bdf8" stroke-opacity="0.6"/>
+    <text x="60" y="37" fill="#e2e8f0">1. Шинжилгээ</text>
+    <path d="M100 34h14M110 30l4 4-4 4" stroke="#64748b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="116" y="20" width="76" height="28" rx="8" fill="#ffffff" fill-opacity="0.06" stroke="#818cf8" stroke-opacity="0.6"/>
+    <text x="154" y="37" fill="#e2e8f0">2. Стратеги</text>
+    <path d="M194 34h14M204 30l4 4-4 4" stroke="#64748b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="210" y="20" width="76" height="28" rx="8" fill="url(#grad)"/>
+    <text x="248" y="37" fill="#0b1638">3. Шийдэл</text>
+  </g>
+
+  <!-- Growth chart -->
+  <rect x="22" y="62" width="176" height="146" rx="10" fill="#0f1a3a" stroke="#ffffff" stroke-opacity="0.12"/>
+  <text x="34" y="80" font-family="Inter, Arial, sans-serif" font-size="7" fill="#94a3b8">Бизнесийн өсөлт</text>
+  <text x="34" y="96" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" fill="#ffffff">+48%</text>
+  <g stroke="#ffffff" stroke-opacity="0.06">
+    <path d="M34 120h152M34 145h152M34 170h152"/>
+  </g>
+  <rect x="40" y="166" width="16" height="30" rx="3" fill="#38bdf8" fill-opacity="0.35"/>
+  <rect x="66" y="156" width="16" height="40" rx="3" fill="#38bdf8" fill-opacity="0.5"/>
+  <rect x="92" y="146" width="16" height="50" rx="3" fill="#38bdf8" fill-opacity="0.65"/>
+  <rect x="118" y="132" width="16" height="64" rx="3" fill="#818cf8" fill-opacity="0.8"/>
+  <rect x="144" y="114" width="16" height="82" rx="3" fill="url(#grad)"/>
+  <path d="M48 158L74 148L100 138L126 122L160 100" stroke="#34d399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M152 98l9 1-2 9" stroke="#34d399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Meeting: two people -->
+  <rect x="214" y="188" width="166" height="6" rx="3" fill="#16224a"/>
+  <!-- Person 1 -->
+  <circle cx="246" cy="136" r="12" fill="#fcd9b8"/>
+  <path d="M234 132a12 12 0 0 1 24 0c-4-4-12-6-24 0z" fill="#1e293b"/>
+  <path d="M226 188v-14a20 20 0 0 1 40 0v14z" fill="#38bdf8"/>
+  <path d="M242 156l4 6 4-6" stroke="#0b1638" stroke-width="1.5" stroke-linejoin="round"/>
+  <!-- Person 2 -->
+  <circle cx="346" cy="136" r="12" fill="#e8b98f"/>
+  <path d="M334 136a12 12 0 0 1 24-2c-2-6-10-9-16-6-4 2-6 5-8 8z" fill="#3f2d20"/>
+  <path d="M326 188v-14a20 20 0 0 1 40 0v14z" fill="#818cf8"/>
+  <!-- Laptop -->
+  <path d="M282 188l6-22h28l6 22z" fill="#94a3b8"/>
+  <circle cx="302" cy="177" r="2" fill="#e2e8f0"/>
+
+  <!-- Speech bubbles -->
+  <rect x="218" y="74" width="66" height="36" rx="10" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.15"/>
+  <path d="M238 110l6 8 4-8z" fill="#ffffff" fill-opacity="0.08"/>
+  <rect x="228" y="84" width="46" height="3" rx="1.5" fill="#e2e8f0"/>
+  <rect x="228" y="91" width="36" height="3" rx="1.5" fill="#94a3b8"/>
+  <rect x="228" y="98" width="42" height="3" rx="1.5" fill="#94a3b8"/>
+
+  <rect x="312" y="62" width="58" height="48" rx="10" fill="url(#grad)"/>
+  <path d="M348 110l4 8 6-8z" fill="#818cf8"/>
+  <!-- Lightbulb -->
+  <path d="M341 74a9 9 0 0 0-5 16.5V94h10v-3.5A9 9 0 0 0 341 74z" fill="#fbbf24"/>
+  <rect x="337" y="96" width="8" height="3" rx="1.5" fill="#0b1638"/>
+  <path d="M341 68v-3M329 78l-2-2M353 78l2-2" stroke="#fbbf24" stroke-width="1.6" stroke-linecap="round"/>
+</svg>
