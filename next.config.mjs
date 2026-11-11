@@ -7,6 +7,7 @@ const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 const nextConfig = {
   output: "export", // статик HTML файлууд үүсгэнэ (out/ хавтас)
   basePath,
+  trailingSlash: true, // /data-analysis/ → data-analysis/index.html
   images: { unoptimized: true },
 };
 
