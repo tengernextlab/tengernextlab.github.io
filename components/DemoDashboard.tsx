@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { demo } from "@/lib/dataAnalysis";
+import { demos } from "@/lib/dataAnalysis";
 
 const fmt = (n: number, d = 1) => n.toLocaleString("mn-MN", { minimumFractionDigits: d, maximumFractionDigits: d });
 
@@ -48,6 +48,8 @@ function Card({ title, right, children }: { title: string; right?: React.ReactNo
 }
 
 export default function DemoDashboard() {
+  const [ind, setInd] = useState(demos[0].id);
+  const demo = demos.find((d) => d.id === ind) ?? demos[0];
   const [period, setPeriod] = useState<"6" | "12">("12");
   const [metric, setMetric] = useState<"revenue" | "profit">("revenue");
   const [sortBy, setSortBy] = useState<"profit" | "units">("units");
@@ -80,6 +82,16 @@ export default function DemoDashboard() {
           <p className="text-xs uppercase tracking-wider text-accent">Жишээ самбар · дарж туршаарай</p>
           <p className="mt-1 text-sm text-slate-400">{demo.business}</p>
         </div>
+        <div className="flex flex-wrap gap-2">
+        <Toggle
+          label="Салбар"
+          value={ind}
+          onChange={(v) => {
+            setInd(v);
+            setHover(null);
+          }}
+          options={demos.map((d) => ({ v: d.id, label: d.label }))}
+        />
         <Toggle
           label="Хугацаа"
           value={period}
@@ -89,6 +101,7 @@ export default function DemoDashboard() {
             { v: "12", label: "Бүтэн жил" },
           ]}
         />
+        </div>
       </div>
 
       {/* KPI */}
@@ -202,14 +215,14 @@ export default function DemoDashboard() {
         {/* Бараа */}
         <div className="lg:col-span-3">
           <Card
-            title={sortBy === "units" ? "Барааны ангилал — зарагдсан ширхэгээр" : "Барааны ангилал — цэвэр ашгаар"}
+            title={sortBy === "units" ? `${demo.itemsLabel} — тоогоор` : `${demo.itemsLabel} — цэвэр ашгаар`}
             right={
               <Toggle
                 label="Эрэмбэ"
                 value={sortBy}
                 onChange={setSortBy}
                 options={[
-                  { v: "units", label: "Ширхэгээр" },
+                  { v: "units", label: "Тоогоор" },
                   { v: "profit", label: "Ашгаар" },
                 ]}
               />
@@ -221,7 +234,7 @@ export default function DemoDashboard() {
                   <div className="flex justify-between gap-3 text-xs">
                     <span className="text-slate-300">{p.name}</span>
                     <span className="shrink-0 font-medium text-white">
-                      {sortBy === "units" ? `${p.units.toLocaleString("mn-MN")} ш` : `${fmt(p.profit)} сая ₮`}
+                      {sortBy === "units" ? `${p.units.toLocaleString("mn-MN")} ${demo.unit}` : `${fmt(p.profit)} сая ₮`}
                     </span>
                   </div>
                   <div className="mt-1 h-2 rounded-full bg-white/5">
@@ -234,7 +247,7 @@ export default function DemoDashboard() {
               ))}
             </ul>
             <p className="mt-4 text-xs text-slate-500">
-              «Ширхэгээр» ба «Ашгаар» хооронд сольж үзээрэй — хамгийн их зарагддаг бараа хамгийн ашигтай нь биш байна.
+              «Тоогоор» ба «Ашгаар» хооронд сольж үзээрэй — хамгийн их борлогддог зүйл хамгийн ашигтай нь биш байдаг.
             </p>
           </Card>
         </div>
