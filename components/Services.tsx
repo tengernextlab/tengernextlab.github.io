@@ -61,7 +61,7 @@ export default function Services() {
                   href={`${base}${s.href}`}
                   className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-accent hover:text-sky-300"
                 >
-                  Дэлгэрэнгүй, жишээ самбар үзэх <span aria-hidden>→</span>
+                  Дэлгэрэнгүй, жишээ үзэх <span aria-hidden>→</span>
                 </a>
               )}
             </div>
