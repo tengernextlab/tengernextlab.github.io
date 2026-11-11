@@ -16,19 +16,24 @@ export const company = {
   ],
 };
 
+// GitHub Pages дээрх үндсэн зам (хоосон байж болно). Дэд хуудаснаас ч цэс ажиллахын тулд хэрэгтэй.
+export const base = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 export const nav = [
-  { label: "Бидний тухай", href: "#about" },
-  { label: "Үйлчилгээ", href: "#services" },
-  { label: "Салбарууд", href: "#industries" },
-  { label: "Төслүүд", href: "#projects" },
-  { label: "Холбоо барих", href: "#contact" },
+  { label: "Бидний тухай", href: `${base}/#about` },
+  { label: "Үйлчилгээ", href: `${base}/#services` },
+  { label: "Дата шинжилгээ", href: `${base}/data-analysis/` },
+  { label: "Салбарууд", href: `${base}/#industries` },
+  { label: "Төслүүд", href: `${base}/#projects` },
+  { label: "Холбоо барих", href: `${base}/#contact` },
 ];
 
+// Зөвхөн шалгаж болох бодит тоо бичээрэй — итгэл үүнээс эхэлдэг.
 export const stats = [
-  { value: "50+", label: "Хэрэгжүүлсэн төсөл" },
-  { value: "30+", label: "Харилцагч байгууллага" },
-  { value: "5+", label: "Жилийн туршлага" },
-  { value: "24/7", label: "Техникийн дэмжлэг" },
+  { value: "6", label: "Үйлчилгээний төрөл" },
+  { value: "12", label: "Салбарын бэлэн шийдэл" },
+  { value: "1 өдөр", label: "Хариу өгөх хугацаа" },
+  { value: "Өлгий · УБ", label: "Биечлэн болон онлайнаар" },
 ];
 
 export const about = {
@@ -51,6 +56,8 @@ export const services = [
     text: "Борлуулалт, зардал, харилцагчийн мэдээллийг тань ойлгомжтой график, тайлан болгоно. Юу сайн зарагдаж, хаана алдагдал гарч байгааг нэг харцаар харж, зөв шийдвэр гаргана.",
     // Картын дээд талд харагдах зураг (public/ хавтас доторх зам)
     image: "/images/data.svg",
+    // Дэлгэрэнгүй хуудас
+    href: "/data-analysis/",
   },
   {
     icon: "clock",
