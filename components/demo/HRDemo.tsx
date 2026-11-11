@@ -77,6 +77,9 @@ function DocPreview({ name, p, onExtend }: { name: DocName; p: Person; onExtend:
   );
 }
 
+const DEPTS = ["Борлуулалт", "Санхүү", "Тээвэр", "Агуулах", "Захиргаа"];
+const initial = (n: string) => (n.trim().split(/\s+/).pop() ?? "?")[0]?.toUpperCase() ?? "?";
+
 const ME = 4; // утсан дээрх ажилтан: Т. Айгерим
 const dates = ["11.17 Да", "11.18 Мя", "11.19 Лх", "11.20 Пү", "11.21 Ба"];
 
@@ -100,6 +103,21 @@ export default function HRDemo() {
   const [flash, setFlash] = useFlash<number>(4000);
   const [toast, setToast] = useFlash<string>(3500);
   const [doc, setDoc] = useState<DocName | null>(null);
+  const [adding, setAdding] = useState(false);
+  const [nf, setNf] = useState({ name: "", pos: "", dept: DEPTS[0], months: 12 });
+  const [newId, setNewId] = useFlash<number>(4000);
+
+  const addPerson = () => {
+    const name = nf.name.trim();
+    if (!name || !nf.pos.trim()) return;
+    const id = Date.now();
+    setPeople((l) => [...l, { id, name, pos: nf.pos.trim(), dept: nf.dept, since: "2026.11", contractDays: nf.months * 30, leaveLeft: 15 }]);
+    setSel(id);
+    setDoc("Анкет");
+    setNewId(id);
+    setAdding(false);
+    setNf({ name: "", pos: "", dept: DEPTS[0], months: 12 });
+  };
 
   const me = people.find((p) => p.id === ME)!;
   const p = people.find((x) => x.id === sel)!;
@@ -244,14 +262,47 @@ export default function HRDemo() {
           </Panel>
 
           <div className="grid gap-3 md:grid-cols-5">
-            <Panel title="Ажилтнууд" className="md:col-span-2">
+            <Panel
+              title={`Ажилтнууд (${people.length})`}
+              className="md:col-span-2"
+              right={
+                <button className={adding ? btnGhost : btnMain} onClick={() => setAdding((a) => !a)}>
+                  {adding ? "Болих" : "+ Нэмэх"}
+                </button>
+              }
+            >
+              {adding && (
+                <form
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    addPerson();
+                  }}
+                  className="mb-3 space-y-2 rounded-xl border border-accent/30 bg-accent/5 p-3 text-sm"
+                >
+                  <p className="text-xs font-semibold text-accent">Шинэ ажилтан</p>
+                  <input required value={nf.name} onChange={(e) => setNf({ ...nf, name: e.target.value })} placeholder="Овог, нэр (ж: С. Нурлан)" aria-label="Овог, нэр" className="w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-white placeholder:text-slate-500 focus:border-accent focus:outline-none" />
+                  <input required value={nf.pos} onChange={(e) => setNf({ ...nf, pos: e.target.value })} placeholder="Албан тушаал (ж: Худалдагч)" aria-label="Албан тушаал" className="w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-white placeholder:text-slate-500 focus:border-accent focus:outline-none" />
+                  <div className="grid grid-cols-2 gap-2">
+                    <select value={nf.dept} onChange={(e) => setNf({ ...nf, dept: e.target.value })} aria-label="Хэлтэс" className="rounded-lg border border-white/10 bg-white/5 px-2 py-2 text-white focus:border-accent focus:outline-none">
+                      {DEPTS.map((d) => <option key={d} className="bg-sky-deep">{d}</option>)}
+                    </select>
+                    <select value={nf.months} onChange={(e) => setNf({ ...nf, months: Number(e.target.value) })} aria-label="Гэрээний хугацаа" className="rounded-lg border border-white/10 bg-white/5 px-2 py-2 text-white focus:border-accent focus:outline-none">
+                      {[3, 6, 12, 24].map((m) => <option key={m} value={m} className="bg-sky-deep">Гэрээ {m} сар</option>)}
+                    </select>
+                  </div>
+                  <button type="submit" className={`${btnMain} w-full`}>Хадгалах</button>
+                  <p className="text-[11px] text-slate-500">Хадгалмагц хувийн хэрэг, анкет нь автоматаар үүснэ.</p>
+                </form>
+              )}
               <ul className="space-y-1">
                 {people.map((x) => (
                   <li key={x.id}>
                     <button onClick={() => setSel(x.id)} className={`flex w-full items-center gap-3 rounded-xl p-2 text-left transition ${sel === x.id ? "bg-accent/10 ring-1 ring-accent/40" : "hover:bg-white/5"}`}>
-                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent/15 text-xs font-semibold text-accent">{x.name.split(" ")[1][0]}</span>
+                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent/15 text-xs font-semibold text-accent">{initial(x.name)}</span>
                       <span className="min-w-0 flex-1">
-                        <span className="block text-sm text-white">{x.name}</span>
+                        <span className="block text-sm text-white">
+                          {x.name} {newId === x.id && <span className="ml-1 rounded bg-accent px-1.5 py-0.5 text-[10px] font-bold text-sky-deep">ШИНЭ</span>}
+                        </span>
                         <span className="block text-xs text-slate-400">{x.pos}</span>
                       </span>
                       {x.contractDays <= 60 && <span className="h-2 w-2 rounded-full bg-amber-400" aria-label="Гэрээ дуусах дөхсөн" />}
