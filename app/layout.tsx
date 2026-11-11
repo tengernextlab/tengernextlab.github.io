@@ -8,9 +8,14 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "TengerNextLab — Технологийн лаборатори",
+  title: "TengerNextLab — Вэб сайт, апп, бизнесийн систем",
   description:
-    "Вэб, мобайл аппликейшн, хиймэл оюун ухаанд суурилсан шийдлүүдийг хөгжүүлдэг технологийн компани.",
+    "Вэб сайт, гар утасны апп, цаг бүртгэл, агуулах, хүний нөөцийн систем, мэдээллийн шинжилгээ. Баян-Өлгий, Улаанбаатарын бизнесүүдэд ойлгомжтой шийдэл.",
+  openGraph: {
+    title: "TengerNextLab — Вэб сайт, апп, бизнесийн систем",
+    description: "Бизнесийн тань өдөр тутмын ажлыг программаар хялбар болгоно. Баян-Өлгий, Улаанбаатар.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
