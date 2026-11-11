@@ -10,6 +10,73 @@ type Person = { id: number; name: string; dept: string; pos: string; since: stri
 type ReqType = "Ээлжийн амралт" | "Чөлөө" | "Өвчний чөлөө";
 type Req = { id: number; pid: number; type: ReqType; start: string; days: number; status: "pending" | "ok" | "no" };
 
+const DOCS = ["Анкет", "Хөдөлмөрийн гэрээ", "Томилгооны тушаал", "Үнэлгээ 2025"] as const;
+type DocName = (typeof DOCS)[number];
+
+// Баримтын жишээ — сонгосон ажилтны мэдээллээр автоматаар бөглөгдөнө (бүгд зохиомол)
+function DocPreview({ name, p, onExtend }: { name: DocName; p: Person; onExtend: () => void }) {
+  const row = (k: string, v: React.ReactNode) => (
+    <div className="flex justify-between gap-4 border-b border-slate-200 py-1.5">
+      <span className="text-slate-500">{k}</span>
+      <span className="text-right font-medium">{v}</span>
+    </div>
+  );
+  const scores = [
+    ["Ажлын гүйцэтгэл", 3 + ((p.id * 7) % 3)],
+    ["Хамтын ажиллагаа", 3 + ((p.id * 5) % 3)],
+    ["Цаг баримтлал", 3 + ((p.id * 3) % 3)],
+  ] as const;
+  const avg = scores.reduce((s, x) => s + x[1], 0) / scores.length;
+  return (
+    <div className="mt-3 rounded-xl bg-white p-4 text-xs text-slate-800 shadow-inner">
+      <p className="text-center text-[10px] uppercase tracking-wider text-slate-400">Жишээ ХХК · жишээ баримт</p>
+      <p className="mt-1 text-center text-sm font-bold">{name.toUpperCase()}</p>
+      <div className="mt-3">
+        {name === "Анкет" && (
+          <>
+            {row("Овог, нэр", p.name)}
+            {row("Албан тушаал", p.pos)}
+            {row("Хэлтэс", p.dept)}
+            {row("Ажилд орсон", p.since)}
+            {row("Утас", "99••-••••")}
+            {row("Хаяг", "Баян-Өлгий, Өлгий сум")}
+          </>
+        )}
+        {name === "Хөдөлмөрийн гэрээ" && (
+          <>
+            {row("Гэрээний №", `ХГ-${p.since.replace(".", "")}-${p.id}`)}
+            {row("Ажилтан", p.name)}
+            {row("Албан тушаал", p.pos)}
+            {row("Байгуулсан", p.since)}
+            {row("Дуусахад", `${p.contractDays} хоног`)}
+            {p.contractDays <= 60 && (
+              <button onClick={onExtend} className="mt-3 w-full rounded-lg bg-sky-500 py-2 font-semibold text-white">
+                Гэрээг 1 жилээр сунгах
+              </button>
+            )}
+          </>
+        )}
+        {name === "Томилгооны тушаал" && (
+          <>
+            {row("Тушаалын №", `Б/${String(p.id).padStart(2, "0")}`)}
+            {row("Огноо", p.since)}
+            {row("Томилогдсон", p.name)}
+            {row("Хэлтэс", p.dept)}
+            {row("Албан тушаал", p.pos)}
+            {row("Гарын үсэг", "Захирал ✓")}
+          </>
+        )}
+        {name === "Үнэлгээ 2025" && (
+          <>
+            {scores.map(([k, v]) => row(k, `${"★".repeat(v)}${"☆".repeat(5 - v)}`))}
+            {row("Дундаж", `${avg.toFixed(1)} / 5`)}
+          </>
+        )}
+      </div>
+    </div>
+  );
+}
+
 const ME = 4; // утсан дээрх ажилтан: Т. Айгерим
 const dates = ["11.17 Да", "11.18 Мя", "11.19 Лх", "11.20 Пү", "11.21 Ба"];
 
@@ -32,6 +99,7 @@ export default function HRDemo() {
   const [days, setDays] = useState(2);
   const [flash, setFlash] = useFlash<number>(4000);
   const [toast, setToast] = useFlash<string>(3500);
+  const [doc, setDoc] = useState<DocName | null>(null);
 
   const me = people.find((p) => p.id === ME)!;
   const p = people.find((x) => x.id === sel)!;
@@ -203,11 +271,29 @@ export default function HRDemo() {
                   <dd className="mt-1">{p.contractDays <= 60 ? <Badge tone="warn">{p.contractDays} хоног</Badge> : <Badge tone="good">{p.contractDays} хоног</Badge>}</dd>
                 </div>
               </dl>
-              <div className="mt-3 flex flex-wrap gap-2 text-xs text-slate-400">
-                {["Анкет", "Хөдөлмөрийн гэрээ", "Томилгооны тушаал", "Үнэлгээ 2025"].map((d) => (
-                  <span key={d} className="rounded-lg border border-white/10 px-2.5 py-1">📄 {d}</span>
+              <p className="mt-3 text-xs text-slate-500">Баримтууд — дарж үзээрэй:</p>
+              <div className="mt-1.5 flex flex-wrap gap-2 text-xs">
+                {DOCS.map((d) => (
+                  <button
+                    key={d}
+                    onClick={() => setDoc(doc === d ? null : d)}
+                    aria-pressed={doc === d}
+                    className={`rounded-lg border px-2.5 py-1 transition ${doc === d ? "border-accent bg-accent/15 text-white" : "border-white/10 text-slate-300 hover:border-accent/50 hover:text-white"}`}
+                  >
+                    📄 {d}
+                  </button>
                 ))}
               </div>
+              {doc && (
+                <DocPreview
+                  name={doc}
+                  p={p}
+                  onExtend={() => {
+                    setPeople((l) => l.map((x) => (x.id === p.id ? { ...x, contractDays: x.contractDays + 365 } : x)));
+                    if (p.id === ME) setToast("Таны хөдөлмөрийн гэрээ 1 жилээр сунгагдлаа ✓");
+                  }}
+                />
+              )}
             </Panel>
           </div>
         </div>
