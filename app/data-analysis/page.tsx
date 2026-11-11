@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SectionTitle from "@/components/SectionTitle";
 import DemoDashboard from "@/components/DemoDashboard";
+import DataUpload from "@/components/demo/DataUpload";
 import { base, company } from "@/lib/content";
 import { allServiceLinks } from "@/lib/servicePages";
 import {
@@ -74,6 +75,9 @@ export default function DataAnalysisPage() {
             <p className="mt-3 text-center text-xs text-slate-500">
               Энэ бол зохиомол өгөгдөл дээрх жишээ. Танай самбарт өөрийн чинь бизнест хэрэгтэй үзүүлэлтүүд орно.
             </p>
+            <div className="mt-10">
+              <DataUpload />
+            </div>
           </div>
         </section>
 
