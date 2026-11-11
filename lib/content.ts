@@ -22,7 +22,6 @@ export const base = process.env.NEXT_PUBLIC_BASE_PATH || "";
 export const nav = [
   { label: "Бидний тухай", href: `${base}/#about` },
   { label: "Үйлчилгээ", href: `${base}/#services` },
-  { label: "Дата шинжилгээ", href: `${base}/data-analysis/` },
   { label: "Салбарууд", href: `${base}/#industries` },
   { label: "Төслүүд", href: `${base}/#projects` },
   { label: "Холбоо барих", href: `${base}/#contact` },
@@ -64,30 +63,35 @@ export const services = [
     title: "Цаг бүртгэлийн систем",
     text: "Ажилтан хэдэн цагт ирж, явсныг автоматаар бүртгэнэ. Хоцролт, илүү цаг, тасалсан өдрийг тооцоолж, цалин бодоход шууд ашиглана.",
     image: "/images/attendance.svg",
+    href: "/attendance/",
   },
   {
     icon: "warehouse",
     title: "Агуулахын систем",
     text: "Ямар бараа хэдэн ширхэг үлдсэн, юу дуусах гэж байгааг бодит цагаар харуулна. Орлого, зарлага, үлдэгдлээ цаас, Excel-гүйгээр хялбар хөтөлнө.",
     image: "/images/warehouse.svg",
+    href: "/warehouse/",
   },
   {
     icon: "people",
     title: "Хүний нөөцийн систем",
     text: "Ажилтны анкет, гэрээ, чөлөө, ээлжийн амралт, үнэлгээг нэг дор хадгална. Бичиг цаасны ажлыг багасгаж, хэрэгтэй мэдээллээ хэдхэн секундэд олно.",
     image: "/images/hr.svg",
+    href: "/hr/",
   },
   {
     icon: "web",
     title: "Вэб сайт",
     text: "Танай байгууллагыг интернэтэд танилцуулах, утсаар ч, компьютерээр ч гоё харагдах вэб сайт. Хүмүүс таныг Google-ээс хайж олох боломжтой болно.",
     image: "/images/web-dev.svg",
+    href: "/website/",
   },
   {
     icon: "mobile",
     title: "Гар утасны апп",
     text: "Харилцагчид тань утаснаасаа захиалга өгөх, мэдээлэл авах, төлбөр төлөх боломжтой iPhone болон Android апп.",
     image: "/images/mobile.svg",
+    href: "/mobile-app/",
   },
 ] as const;
 
