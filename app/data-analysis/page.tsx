@@ -3,7 +3,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SectionTitle from "@/components/SectionTitle";
 import DemoDashboard from "@/components/DemoDashboard";
-import { company } from "@/lib/content";
+import { base, company } from "@/lib/content";
+import { allServiceLinks } from "@/lib/servicePages";
 import {
   daHero,
   daQuestions,
@@ -226,6 +227,20 @@ export default function DataAnalysisPage() {
                 <a href={tel} className="rounded-full border border-white/20 px-6 py-3 font-medium text-white hover:bg-white/5">
                   {company.phone}
                 </a>
+              </div>
+            </div>
+
+            {/* Бусад үйлчилгээ */}
+            <div className="mt-12 text-center">
+              <p className="text-sm text-slate-400">Бусад үйлчилгээ</p>
+              <div className="mt-4 flex flex-wrap justify-center gap-2">
+                {allServiceLinks
+                  .filter((s) => s.href !== "/data-analysis/")
+                  .map((s) => (
+                    <a key={s.href} href={`${base}${s.href}`} className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-200 hover:border-accent/50 hover:text-white">
+                      {s.name}
+                    </a>
+                  ))}
               </div>
             </div>
           </div>
