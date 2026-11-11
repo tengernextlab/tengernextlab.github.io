@@ -1,4 +1,4 @@
-import { services } from "@/lib/content";
+import { base, services } from "@/lib/content";
 import SectionTitle from "./SectionTitle";
 
 const icons: Record<string, React.ReactNode> = {
@@ -56,6 +56,14 @@ export default function Services() {
               </div>
               <h3 className="mt-5 text-lg font-semibold text-white">{s.title}</h3>
               <p className="mt-2 text-slate-400">{s.text}</p>
+              {"href" in s && (
+                <a
+                  href={`${base}${s.href}`}
+                  className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-accent hover:text-sky-300"
+                >
+                  Дэлгэрэнгүй, жишээ самбар үзэх <span aria-hidden>→</span>
+                </a>
+              )}
             </div>
           ))}
         </div>
