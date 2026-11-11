@@ -31,7 +31,7 @@ export default function Services() {
               className="group rounded-2xl border border-white/10 bg-white/5 p-6 transition hover:-translate-y-1 hover:border-accent/50"
             >
               {"image" in s && (
-                <div className="-mx-2 -mt-2 mb-5 overflow-hidden rounded-xl border border-white/10">
+                <div className="-mx-2 -mt-2 mb-5 hidden overflow-hidden rounded-xl border border-white/10 sm:block">
                   <img
                     src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}${s.image}`}
                     alt={s.title}
