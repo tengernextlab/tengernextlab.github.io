@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { company, nav } from "@/lib/content";
+import { base, company, nav } from "@/lib/content";
 import Logo from "./Logo";
 
 export default function Header() {
@@ -22,19 +22,19 @@ export default function Header() {
       }`}
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
-        <a href="#" className="flex items-center gap-2 font-semibold text-white">
+        <a href={`${base}/`} className="flex items-center gap-2 font-semibold text-white">
           <Logo />
           {company.name}
         </a>
 
-        <nav className="hidden items-center gap-8 lg:flex">
+        <nav className="hidden items-center gap-6 lg:flex">
           {nav.map((item) => (
             <a key={item.href} href={item.href} className="text-sm text-slate-300 hover:text-white">
               {item.label}
             </a>
           ))}
           <a
-            href="#contact"
+            href={`${base}/#contact`}
             className="rounded-full bg-accent px-4 py-2 text-sm font-medium text-sky-deep hover:bg-sky-300"
           >
             Хамтран ажиллах
