@@ -2,7 +2,8 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SectionTitle from "@/components/SectionTitle";
-import { AttendanceDemo, WarehouseDemo, HRDemo, WebsiteDemo, MobileAppDemo } from "@/components/ServiceDemos";
+import { AttendanceDemo, WarehouseDemo, HRDemo, WebsiteDemo } from "@/components/ServiceDemos";
+import MobileAppDemo from "@/components/MobileAppDemo";
 import { base, company } from "@/lib/content";
 import { allServiceLinks, type ServicePageContent } from "@/lib/servicePages";
 
