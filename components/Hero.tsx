@@ -11,7 +11,7 @@ export default function Hero() {
 
       <div className="relative mx-auto max-w-6xl px-4 text-center">
         <span className="inline-block rounded-full border border-white/15 bg-white/5 px-4 py-1 text-xs text-slate-300">
-          Технологийн инновацийн лаборатори
+          {company.tagline}
         </span>
         <h1 className="mx-auto mt-6 max-w-4xl text-4xl font-bold leading-tight text-white sm:text-6xl">
           {company.headline[0]} <span className="text-gradient">{company.headline[1]}</span>
@@ -23,13 +23,13 @@ export default function Hero() {
             href="#services"
             className="rounded-full bg-accent px-6 py-3 font-medium text-sky-deep hover:bg-sky-300"
           >
-            Үйлчилгээ үзэх
+            Үйлчилгээ, жишээ үзэх
           </a>
           <a
             href="#contact"
             className="rounded-full border border-white/20 px-6 py-3 font-medium text-white hover:bg-white/5"
           >
-            Холбогдох
+            Үнийн санал авах
           </a>
         </div>
 
@@ -37,7 +37,7 @@ export default function Hero() {
           {stats.map((s) => (
             <div key={s.label} className="rounded-2xl border border-white/10 bg-white/5 p-5">
               <dt className="text-sm text-slate-400">{s.label}</dt>
-              <dd className="mt-1 text-3xl font-bold text-white">{s.value}</dd>
+              <dd className="mt-1 text-2xl font-bold text-white sm:text-3xl">{s.value}</dd>
             </div>
           ))}
         </dl>
