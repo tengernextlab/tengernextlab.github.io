@@ -1,31 +1,47 @@
-import { company, nav } from "@/lib/content";
+import { base, company } from "@/lib/content";
+import { allServiceLinks } from "@/lib/servicePages";
 import Logo from "./Logo";
 
 export default function Footer() {
+  const socials = company.socials.filter((s) => s.href && s.href !== "#");
+  const tel = `tel:${company.phone.replace(/\s/g, "")}`;
   return (
-    <footer className="border-t border-white/10 py-10">
-      <div className="mx-auto flex max-w-6xl flex-col gap-6 px-4 md:flex-row md:items-center md:justify-between">
-        <div className="flex items-center gap-2 font-semibold text-white">
-          <Logo size={24} />
-          {company.name}
+    <footer className="border-t border-white/10 py-12">
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div>
+          <a href={`${base}/`} className="flex items-center gap-2 font-semibold text-white">
+            <Logo size={24} />
+            {company.name}
+          </a>
+          <p className="mt-3 max-w-xs text-sm text-slate-400">{company.tagline}</p>
+          <p className="mt-2 text-sm text-slate-500">{company.area}</p>
         </div>
-        <nav className="flex flex-wrap gap-6 text-sm text-slate-400">
-          {nav.map((n) => (
-            <a key={n.href} href={n.href} className="hover:text-white">
-              {n.label}
-            </a>
-          ))}
+
+        <nav aria-label="Үйлчилгээ">
+          <p className="text-sm font-semibold text-white">Үйлчилгээ</p>
+          <ul className="mt-3 space-y-2 text-sm text-slate-400">
+            {allServiceLinks.map((s) => (
+              <li key={s.href}>
+                <a href={`${base}${s.href}`} className="hover:text-white">{s.name}</a>
+              </li>
+            ))}
+          </ul>
         </nav>
-        <div className="flex gap-4 text-sm text-slate-400">
-          {company.socials.map((s) => (
-            <a key={s.name} href={s.href} className="hover:text-white">
-              {s.name}
-            </a>
-          ))}
+
+        <div>
+          <p className="text-sm font-semibold text-white">Холбоо барих</p>
+          <ul className="mt-3 space-y-2 text-sm text-slate-400">
+            <li><a href={tel} className="hover:text-white">📞 {company.phone}</a></li>
+            <li><a href={`mailto:${company.email}`} className="hover:text-white">✉️ {company.email}</a></li>
+            <li>📍 {company.address}</li>
+            {socials.map((s) => (
+              <li key={s.name}><a href={s.href} target="_blank" rel="noopener noreferrer" className="hover:text-white">{s.name}</a></li>
+            ))}
+          </ul>
         </div>
       </div>
-      <p className="mt-8 text-center text-xs text-slate-500">
-        © {new Date().getFullYear()} {company.name}. Бүх эрх хуулиар хамгаалагдсан.
+      <p className="mt-10 text-center text-xs text-slate-500">
+        © {new Date().getFullYear()} {company.legalName}. Бүх эрх хуулиар хамгаалагдсан.
       </p>
     </footer>
   );
