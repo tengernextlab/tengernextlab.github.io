@@ -2,7 +2,10 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SectionTitle from "@/components/SectionTitle";
-import { AttendanceDemo, WarehouseDemo, HRDemo, WebsiteDemo } from "@/components/ServiceDemos";
+import AttendanceDemo from "@/components/demo/AttendanceDemo";
+import WarehouseDemo from "@/components/demo/WarehouseDemo";
+import HRDemo from "@/components/demo/HRDemo";
+import WebsiteDemo from "@/components/demo/WebsiteDemo";
 import MobileAppDemo from "@/components/MobileAppDemo";
 import { base, company } from "@/lib/content";
 import { allServiceLinks, type ServicePageContent } from "@/lib/servicePages";
