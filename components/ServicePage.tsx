@@ -67,6 +67,26 @@ export default function ServicePage({ page }: { page: ServicePageContent }) {
           </div>
         </section>
 
+        {/* Төрлүүд (заавал биш) */}
+        {page.types && page.types.length > 0 && (
+          <section className="pb-24">
+            <div className="mx-auto max-w-6xl px-4">
+              <SectionTitle eyebrow="Төрлүүд" title={page.typesTitle ?? "Юу хийдэг вэ"} />
+              <div className="mt-14 grid gap-4 sm:grid-cols-2">
+                {page.types.map((t, i) => (
+                  <div key={t.title} className="flex gap-4 rounded-2xl border border-white/10 bg-white/5 p-6 transition hover:border-accent/50">
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent/10 font-bold text-accent">{i + 1}</span>
+                    <div>
+                      <h3 className="font-semibold text-white">{t.title}</h3>
+                      <p className="mt-2 text-sm text-slate-400">{t.text}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
         {/* Давуу тал */}
         <section className="bg-sky-night/50 py-24">
           <div className="mx-auto max-w-6xl px-4">
