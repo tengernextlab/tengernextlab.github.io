@@ -28,7 +28,6 @@ export const nav = [
   { label: "Үйлчилгээ", href: `${base}/#services` },
   { label: "Хэрхэн ажилладаг", href: `${base}/#process` },
   { label: "Салбарууд", href: `${base}/#industries` },
-  { label: "Үнэ", href: `${base}/#pricing` },
   { label: "Бидний тухай", href: `${base}/#about` },
   { label: "Холбоо барих", href: `${base}/#contact` },
 ];
