@@ -14,7 +14,7 @@ export const company = {
   address: "Улаанбаатар хот, Сүхбаатар дүүрэг",
   // Холбоосоо оруулбал сайтын доод хэсэгт гарна. "#" үлдсэн нь харагдахгүй.
   socials: [
-    { name: "Facebook", href: "https://www.facebook.com/profile.php?id=61596254407842" },
+    { name: "Facebook", href: "https://www.facebook.com/profile.php?id=61596586161851" },
     { name: "LinkedIn", href: "#" },
   ],
 };
