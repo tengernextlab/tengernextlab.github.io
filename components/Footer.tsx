@@ -1,7 +1,6 @@
 import { base, company } from "@/lib/content";
 import { allServiceLinks } from "@/lib/servicePages";
 import Logo from "./Logo";
-import ChatButtons from "./ChatButtons";
 
 export default function Footer() {
   const socials = company.socials.filter((s) => s.href && s.href !== "#");
@@ -43,7 +42,6 @@ export default function Footer() {
       <p className="mt-10 text-center text-xs text-slate-500">
         © {new Date().getFullYear()} {company.legalName}. Бүх эрх хуулиар хамгаалагдсан.
       </p>
-      <ChatButtons />
     </footer>
   );
 }
