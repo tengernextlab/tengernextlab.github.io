@@ -33,7 +33,6 @@ export default function Footer() {
           <ul className="mt-3 space-y-2 text-sm text-slate-400">
             <li><a href={tel} className="hover:text-white">📞 {company.phone}</a></li>
             <li><a href={`mailto:${company.email}`} className="hover:text-white">✉️ {company.email}</a></li>
-            <li>📍 {company.address}</li>
             {socials.map((s) => (
               <li key={s.name}><a href={s.href} target="_blank" rel="noopener noreferrer" className="hover:text-white">{s.name}</a></li>
             ))}
